@@ -1,0 +1,496 @@
+<exam> 
+	<questions shuffle="all">
+<question>
+<text> 
+For the following c++ code:
+\begin{lstlisting}[language=cpp]
+#include&lt;iostream&gt; 
+class Base { 
+	public: 
+		Base(){cout&lt;&lt;"Base"&lt;&lt;endl;} 
+		Base(int i){cout&lt;&lt;"Base"&lt;&lt;i&lt;&lt;endl;} 
+		~Base(){cout&lt;&lt;"Destruct Base"&lt;&lt;endl;} 
+};
+class Der: public Base{ 
+	public: 
+		Der(){cout&lt;&lt;"Der"&lt;&lt;endl;} 
+		Der(int i): Base(i) {cout&lt;&lt;"Der"&lt;&lt;i&lt;&lt;endl;} 
+		~Der(){cout&lt;&lt;"Destruct Der"&lt;&lt;endl;} 
+}; 
+int main(){ 
+	 Base a; 
+	 Der d(2); 
+	 return 0; 
+ } 
+\end{lstlisting}
+ </text>
+ <parts shuffle="all">
+<part> Which is the parent class:
+	<options shuffle="3">
+	<option> Base </option>
+	<option> Der</option>
+	<option> Both</option>
+	<option> none of the above </option>
+	</options>	
+	</part>
+<part> How many classes can inherit from the parent class
+	<options shuffle="all">
+		<option>only one</option>
+	<option>one or more</option>
+	<option>we can't inherit from a parent class'</option>
+</options>
+</part>
+<part> When running the first line in the main function, the item(s) printed on the console is/are :
+	<options shuffle="all">
+<option>Base</option>
+	<option>Basei</option>
+	<option> Der</option>
+	<option> Base
+	  Der</option>
+	</options>
+</part>
+<part> When running the second line in the main function,the item(s) printed on the console is are :
+	<options shuffle="all">
+	<option> Der </option>
+	<option> Der2
+	  Base2 </option>
+	<option> Base2
+	  Der2 </option>
+	<option> Base
+	  Der2</option>
+	</options>
+</part>
+<part> After finishing the program programthe destructors will be called, the item(s) printed on the console is/are :
+	<options shuffle="all">
+		<option> Destruct Base
+	  Destruct Der
+	  Destruct Base </option>
+    <option>Destruct Base
+	  Destruct Base
+	  Destruct Der</option>
+	<option> Destruct Der
+	  Destruct Base</option>
+	<option> Destruct Base  
+      Destruct Base</option>
+      
+      </options>
+  </part>
+ </parts>
+</question>
+<question>
+<text>
+For the  code shown answer the following questions	:
+\begin{lstlisting}[language=cpp]
+class A {
+public:
+	int f() {return 1;	}
+	virtual int g() {return 2;}
+};
+class B: public A {
+public:
+	int f() {return 3;}
+	virtual int g() {return 4;}
+};
+class C: public A {
+public:
+	virtual int g() {return 5;}
+};
+int main() {
+	A *pa = new A();
+	A *pb = new B();
+	A *pc = new C();
+	
+	cout &lt;&lt; pa-&gt;f() &lt;&lt; endl; /* line 1*/
+	cout &lt;&lt; pa-&gt;g() &lt;&lt; endl; /* line 2*/
+	cout &lt;&lt; pb-&gt;f() + pb-&gt;g() &lt;&lt; endl; /* line 3*/
+	cout &lt;&lt; pc-&gt;f() &lt;&lt; endl; /* line 4*/
+	cout &lt;&lt; pc-&gt;g() &lt;&lt; endl; /* line 5*/
+	return 0;
+}
+\end{lstlisting}
+
+
+</text>
+<parts>
+	<part> When running the line 1, the output will be:
+		<options shuffle="2">
+			<option>1</option>
+			<option>3</option>
+			<option>compilation error </option>
+			<option>None of the above</option>
+		</options>
+	</part>
+	<part>
+When running the line 2 , the output will be:
+		<options shuffle="all">
+			<option>1</option>
+			<option>2</option>
+			<option>4</option>
+			<option>5</option>
+	</options>
+	</part>
+	<part>
+When running the line 3 , the output will be:		<options shuffle="all">
+			<option>3</option>
+			<option>7</option>
+			<option>5</option>
+			<option>4</option>
+	</options>
+	</part>
+	<part>
+When running the line 4  the output will be:		
+<options shuffle="all">
+			<option>ERROR</option>
+			<option>1</option>
+			<option>3</option>
+			<option>5</option>
+	</options>
+	</part>
+	<part>
+When running the line 5 the output will be:
+<options shuffle="all">
+			<option>ERROR</option>
+			<option>5</option>
+			<option>4</option>
+			<option>2</option>
+	</options>
+	</part>
+
+</parts>
+	</question>
+	<question> What is meant by multiple inheritance?
+<parts>
+<part>
+<options shuffle="all">
+<option>Deriving a base class from derived class </option>
+	<option> Deriving a derived class from base class </option>
+	<option> Deriving a derived class from more than one base class </option>
+	<option> None of the mentioned </option>
+	</options>
+	</part>
+	</parts>
+	</question>
+	<question> To overload the += operator:
+<parts>
+<part>
+<options shuffle="all">
+<option>Only the = operator needs to be overloaded </option>
+	<option> Both the + and = operators need to be overloaded</option>
+	<option> The += operator need to be overloaded </option>
+	<option> Only the + operator needs to be overloaded </option>
+	</options>
+	</part>
+	</parts>
+	</question>
+<question score="4"> 
+<text> What is the output of this program?
+\begin{lstlisting}[language=cpp]
+
+#include &lt;iostream&gt;
+using namespace std;
+class sample     {
+	public:
+    int x, y;
+    sample() {};
+    sample(int, int);
+    sample operator + (sample);
+};
+sample::sample (int a, int b) {
+	x = a;
+    y = b;
+}
+sample sample::operator+ (sample param) {
+    sample temp;
+    temp.x = x + param.x;
+    temp.y = y + param.y;
+    return (temp);
+} 
+int main () {
+    sample a (4,1);
+    sample b (3,2);
+    sample c;
+    c = a + b;
+    cout &lt;&lt; c.x &lt;&lt; "," &lt;&lt; c.y;
+    return 0;
+}
+\end{lstlisting}
+</text>
+
+<parts shuffle="all">
+<part>
+<options>
+<option>5, 5 </option>
+	<option> 7, 3</option>
+	<option> 3, 7</option>
+	<option> None of the mentioned </option>
+	</options>
+	</part>
+	</parts>
+	</question>
+	<question> Can we define constructors as virtual?
+<parts><part><options shuffle="all">
+<option> Yes, this can be done at any class</option>
+	<option> Never</option>
+	<option>Only in parent classes  </option>
+	<option>Only in child classes  </option>
+	</options>
+	</part>
+	</parts>
+	</question>
+<question> We can call a class as abstract class when:
+<parts>
+<part>
+<options shuffle="all">
+<option>One or more functions are abstract </option>
+	<option>All functions are abstract </option>
+	<option> Only one function is abstract </option>
+	<option> More than one function is abstract </option>
+	</options>
+	</part>
+	</parts>
+	</question>
+	<question> Can we make an object of an abstract class?
+<parts><part><options shuffle="all">
+<option> Yes</option>
+	<option>Never </option>
+	<option> Only if the abstract class is a parent class </option>
+	<option> Only if the abstract class is a child class </option>
+	</options>
+	</part>
+	</parts>
+	</question>
+<question> When making a function abstract we put:
+<parts><part><options shuffle="all">
+<option>=0 at the begining of function definition </option>
+<option>=0 at end of function definition </option>
+<option> !=0 at the begining of function definition </option>
+<option> !=0 at the begining of function definition </option>
+</options></part></parts></question>
+<question> When making a member function const, we put:
+<parts><part><options shuffle="all">
+<option> const at the begining of function definition </option>
+<option>const at end of function definition </option>
+<option> const at the begining of function definition and declartion </option>
+<option> const at the end of function definition and declartion </option>
+</options></part></parts></question>
+
+<question> .......class members can be called directly from outside the class
+<parts><part><options shuffle="all">
+<option> public</option>
+<option>Private </option>
+<option>Protected</option>
+<option> Inherited </option>
+</options></part></parts></question>
+<question>.... members are accessible in the class that defines them and in classes that inherit from that class.
+<parts><part><options shuffle="3">
+<option>Public </option>
+<option>Private </option>
+<option>Protected</option>
+<option> None of the above </option>
+</options></part></parts></question>
+<question> Ability of a type to take many forms is called .
+
+<parts><part><options shuffle="3">
+<option>Polymorphism </option>
+<option> Encapsulation</option>
+<option> Inheritance </option>
+<option> None of the above </option>
+</options></part></parts></question>
+<question> Vectores are implemented using:
+<parts><part><options shuffle="all">
+<option> Linked list</option>
+<option> Stack</option>
+<option> Array </option>
+<option> Tree </option>
+<option> Hash table </option>
+</options></part></parts></question>
+<question> Maps in STL library are implemented as:
+<parts><part><options shuffle="all">
+	<option> Linked list</option>
+<option> Stack</option>
+<option> Array </option>
+<option> Tree </option>
+<option> Hash table </option>
+</options></part></parts></question>
+<question> Unordered map in STL library are implemented as:
+<parts><part><options shuffle="all">
+<option> Linked list</option>
+<option> Stack</option>
+<option> Array </option>
+<option> Tree </option>
+<option> Hash table </option>
+</options></part></parts></question>
+
+<question> Why to pass an object as a const?
+<parts><part><options shuffle="3">
+<option> To make sure nobody alters the members of that object</option>
+<option> To call the constructor directly of that passed object</option>
+<option>  To make sure that this passed parameter of type object</option>
+<option>  None of the above</option>
+</options></part></parts></question>
+
+<question>
+<text> 
+	For the following c++ code, answer the following questions:	
+\begin{lstlisting}[language=cpp]
+#include &lt;iostream&gt;
+using namespace std;
+class Animal {
+public:
+virtual void speak()=0;
+virtual void purr() { cout &lt;&lt; "Purr\n"; }
+};
+class Cat : public Animal {
+public:
+void speak() { cout &lt;&lt; "Meow\n";purr(); }
+};
+class Lion : public Cat {
+public:
+void speak() { cout &lt;&lt; "ROAR\n"; }
+void purr() { cout &lt;&lt; "ROAR\n"; }
+};
+int main() {
+Animal* c = new Cat();
+Cat napster;
+Lion googly;
+c-&gt;speak();
+napster.speak();
+googly.speak();
+return 0;
+}
+\end{lstlisting}
+</text>
+<parts><part>What does the first line print? </part>
+<part>What does the second line print? </part>
+<part>What does the third line print? </part>
+<part>What does the fourth line print? </part>
+<part>What does the fifth line print? </part>
+</parts>
+</question>
+<question>
+<text> 
+	For the following program:
+\begin{lstlisting}[language=cpp]
+#include&lt;iostream&gt;
+using namespace std;
+class A{
+    public:
+    A(){cout&lt;&lt;"0"&lt;&lt;endl;}
+    A(A&amp; x){cout&lt;&lt;"1"&lt;&lt;endl;}
+    A&amp; operator=(A&amp; x){cout&lt;&lt;"2"&lt;&lt;endl;return x;}  
+};
+A func1(A a){return a;}
+A func2(A &amp; a){return a;}
+A&amp; func2(A&amp; a){return a;}
+int main(){
+ A a; 	   /*line 1*/
+ A b(a);   /*line 2*/
+ b=a;      /*line 3*/
+ func1(a); /*line 4*/
+ func2(a); /*line 5*/
+ func3(a); /*line 6*/
+}
+\end{lstlisting}
+</text>
+<parts><part>What does the line 1 print? </part>
+<part>What does the line 2 print? </part>
+<part>What does the  line 3 print? </part>
+<part>What does the  line 4 print? </part>
+<part>What does the  line 5 print? </part>
+<part>What does the  line 6 print? </part>
+</parts>
+</question>
+<question> 
+	<text>
+Evaluate using the following variables and initializations:
+\begin{lstlisting}[language=cpp]		
+int a = 2, b = -3, c = 2; 
+bool tval1 = false, tval2 = true; 
+char ch = 'd'; 
+\end{lstlisting}
+Assume each evaluation is legal and occurs immediately after this declaration.
+What the value of this expersion?
+</text>
+<parts shuffle="all">	
+	<part>b + c * a
+</part>
+<part>c \% 5 / 3</part>
+<part>tval1 \&amp;\&amp; tval2</part>
+<part>–a * c++</part>
+<part> ch += 2
+</part></parts>
+</question>
+<question>
+	<text>
+Supply line 2, so that line 3 calls ff2.
+\begin{lstlisting}[language=cpp]		
+#include&lt;iostream&gt;
+using namespace std;
+typedef int (*x) (int n);
+class A{public:   x f1;  };
+int ff1 (int n){
+ return 0;
+}
+int ff2 (int n){
+ return 0;
+}
+int main(){
+ A a; /*line 1*/
+        /* line 2*/
+ a.f1(2); /*line 3*/
+}
+\end{lstlisting}
+</text>
+ 
+</question>
+<question> 
+<text>
+	Supply line 1, so that we call f() from class A
+\begin{lstlisting}[language=cpp]		
+class A{public: void f(){}    };
+class B:public A{
+  public: void f(){
+     /*line 1*/
+  }
+};
+\end{lstlisting}
+</text>
+
+	</question>
+
+<question>
+<text>
+For the following c++ code, answer the following questions:	
+\begin{lstlisting}[language=cpp]		
+#include &lt;iostream&gt; 
+using namespace std; 
+#define foo1( a )  (a * a)
+inline int foo2( int a ) { return (a * a); }
+inline int goo1( int x ) { return foo1(foo2(x)); }
+inline int goo2( int&amp; x ) { return x = foo2(foo1(x)); }
+inline int goo3( int&amp; x, int y ) { return foo2(foo1(y + 1)); }
+inline void goo4( int&amp; x, int y ) { x = foo1(foo2(y + 1)); }
+int main() 
+{ 
+    int i = 2, j = 1; 
+    cout &lt;&lt; "foo1 = " &lt;&lt; foo1( 1 + 2 ) &lt;&lt; "\n"; 
+    cout &lt;&lt; "foo2 = " &lt;&lt; foo2( 2 + 1 ) &lt;&lt; "\n"; 
+    cout &lt;&lt; "goo1 = " &lt;&lt; goo1( i ) &lt;&lt; "\n"; 
+    cout &lt;&lt; "goo2 = " &lt;&lt; goo2( j ) &lt;&lt; "\n"; 
+    cout &lt;&lt; "goo3 = " &lt;&lt; goo3( i, j ) &lt;&lt; "\n"; 
+    goo4( i, j ); 
+    cout &lt;&lt;  "i = " &lt;&lt; i &lt;&lt; "\nj = " &lt;&lt;   j &lt;&lt; "\n"; 
+    return 0; 
+}
+\end{lstlisting}
+</text>
+<parts><part>Enter the numerical answer for: foo1 </part>
+<part>Enter the numerical answer for: foo2</part>
+<part>Enter the numerical answer for: goo1</part>
+<part>Enter the numerical answer for: goo2</part>
+<part>Enter the numerical answer for: goo3</part>
+<part>Enter the numerical answer for: i</part>
+<part>Enter the numerical answer for: j</part></parts>
+</question>
+</questions>
+</exam>

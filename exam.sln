@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exam", "exam\exam.csproj", "{BDA98A4C-49C1-492C-A17E-2E32A85E2543}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDA98A4C-49C1-492C-A17E-2E32A85E2543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDA98A4C-49C1-492C-A17E-2E32A85E2543}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDA98A4C-49C1-492C-A17E-2E32A85E2543}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDA98A4C-49C1-492C-A17E-2E32A85E2543}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
